@@ -1,0 +1,29 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.2
+mlflow_version: 2.7.1
+model_uuid: 210c928237d64acbbb112c8b089390c0
+run_id: cd254fa4921645a68783925088c2800a
+signature:
+  inputs: '[{"type": "long", "name": "build_year"}, {"type": "long", "name": "building_type_int"},
+    {"type": "double", "name": "ceiling_height"}, {"type": "long", "name": "flats_count"},
+    {"type": "long", "name": "floors_total"}, {"type": "long", "name": "has_elevator"},
+    {"type": "long", "name": "floor"}, {"type": "long", "name": "is_apartment"}, {"type":
+    "double", "name": "kitchen_area"}, {"type": "double", "name": "living_area"},
+    {"type": "long", "name": "rooms"}, {"type": "double", "name": "total_area"}, {"type":
+    "string", "name": "district"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2026-01-16 14:38:26.719969'

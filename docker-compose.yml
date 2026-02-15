@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # 1. Reverse Proxy (Entry Point)
+  nginx:
+    image: nginx:latest
+    container_name: ml_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
+      - grafana
+    restart: always
+
+  # 2. Backend API (ML Model)
+  backend:
+    build:
+      context: ./services
+      dockerfile: Dockerfile
+    container_name: ml_backend
+    environment:
+      - APP_PORT=8081
+    restart: always
+    # No exposed ports - only accessible via Nginx
+
+    # 3. Frontend UI (Streamlit)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ml_frontend
+    environment:
+      - BACKEND_URL=http://backend:8081
+    restart: always
+    # No exposed ports - only accessible via Nginx
+
+    # 4. Monitoring (Prometheus + Grafana)
+  prometheus:
+    image: prom/prometheus
+    container_name: ml_prometheus
+    volumes:
+      - ./services/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    restart: always
+
+  grafana:
+    image: grafana/grafana
+    container_name: ml_grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASS:-admin}
+      - GF_SERVER_ROOT_URL=http://${PUBLIC_IP:-localhost}/monitor/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+    restart: always
+
+volumes:
+  grafana_data:
