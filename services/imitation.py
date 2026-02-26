@@ -2,7 +2,7 @@ import requests
 import time
 import random
 
-URL = "http://localhost:8081/api/predict"
+URL = "http://localhost/api/predict"
 
 DISTRICTS = [
     "Рязанский район", "Хамовники", "Якиманка", "Тверской",

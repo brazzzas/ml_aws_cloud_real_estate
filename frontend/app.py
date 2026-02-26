@@ -1,11 +1,8 @@
 import streamlit as st
 import pandas as pd
 import requests
-import io
 import os
 import numpy as np
-import plotly.graph_objects as go
-import plotly.express as px
 
 # Set page title
 st.set_page_config(page_title="Batch Prediction Service", layout="wide")

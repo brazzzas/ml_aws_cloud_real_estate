@@ -1,6 +1,8 @@
-# MLE Project Instructions
+# MLE Project — API Usage Guide
 
-## 📡 API Usage Guide
+> For project overview and architecture, see [README.md](README.md).
+
+## 📡 API Endpoints
 
 The backend provides a REST API for making predictions programmatically.
 
@@ -11,7 +13,8 @@ The backend provides a REST API for making predictions programmatically.
 ---
 
 ### 1. Single Prediction
-Make a prediction for a single apartment object via `POST /predict`.
+
+Make a prediction for a single apartment via `POST /predict`.
 
 **Request (cURL):**
 ```bash
@@ -42,6 +45,7 @@ curl -X 'POST' \
 ---
 
 ### 2. Batch Prediction
+
 Upload a CSV file containing multiple objects to `POST /predict_batch`.
 
 **CSV Format:**
@@ -65,8 +69,10 @@ The system includes a monitoring stack to track service health and data drift.
 1.  **Access Grafana**: `http://localhost/monitor/`
 2.  **Login**: Default credentials are `admin` / `admin`.
 3.  **Dashboards**:
-    *   Navigate to **Dashboards** -> **General** to see pre-configured panels.
-    *   Metrics include Request Count, Latency, and potentially custom model metrics (if configured).
+    *   Navigate to **Dashboards** → **General** to see pre-configured panels.
+    *   Metrics include Request Count, Latency, and custom model metrics.
+
+For detailed metrics documentation, see [Monitoring.md](Monitoring.md).
 
 **Troubleshooting Monitoring:**
 If you cannot access Grafana:
@@ -74,7 +80,7 @@ If you cannot access Grafana:
     ```bash
     docker compose ps
     ```
-2.  If `ml_grafana` or `ml_prometheus` are missing, restart the *entire* stack:
+2.  If `ml_grafana` or `ml_prometheus` are missing, restart the entire stack:
     ```bash
     docker compose up -d --build
     ```

@@ -37,7 +37,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfbqk7j9znr40b"
+        "uid": "prometheus-ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -128,7 +128,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cfbqk7j9znr40b"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(\n  0.5,\n  sum by (le) (rate(price_histogram_bucket[5m]))\n)",
@@ -145,7 +145,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfbqk7j9znr40b"
+        "uid": "prometheus-ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -228,7 +228,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cfbqk7j9znr40b"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "rate(positive_counter_total[1m])",
@@ -245,7 +245,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfbqk7j9znr40b"
+        "uid": "prometheus-ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -304,7 +304,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cfbqk7j9znr40b"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "process_resident_memory_bytes",
@@ -317,7 +317,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cfbqk7j9znr40b"
+            "uid": "prometheus-ds"
           },
           "editorMode": "code",
           "expr": "http_request_duration_seconds_bucket{}",
@@ -347,7 +347,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfbqk7j9znr40b"
+        "uid": "prometheus-ds"
       },
       "fieldConfig": {
         "defaults": {
@@ -441,7 +441,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cfbqk7j9znr40b"
+        "uid": "prometheus-ds"
       },
       "fieldConfig": {
         "defaults": {

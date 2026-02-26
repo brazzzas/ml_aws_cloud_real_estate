@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-API_URL="http://localhost:8081"
+API_URL="http://localhost/api"
 CSV_FILE="sample_data_drift.csv"
 
 echo "---------------------------------------------------"
@@ -34,7 +34,7 @@ JSON_PAYLOAD='{
 
 echo "$JSON_PAYLOAD" | jq . 2>/dev/null || echo "$JSON_PAYLOAD" # Pretty print if jq installed
 
-response=$(curl -s -X POST "$API_URL/api/predict" \
+response=$(curl -s -X POST "$API_URL/predict" \
   -H "Content-Type: application/json" \
   -d "$JSON_PAYLOAD")
 

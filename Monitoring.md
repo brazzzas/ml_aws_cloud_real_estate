@@ -1,11 +1,21 @@
 # Monitoring
 
+> For project overview, see [README.md](README.md). For API usage, see [Instructions.md](Instructions.md).
+
 The dashboard is designed for real-time monitoring of the machine learning service.
 It allows tracking the correctness of the ML model, API load, as well as the application process status and resource usage.
 
 Monitoring is built on metrics automatically collected by Prometheus, as well as custom metrics added to the application code.
 
-## Metrics from several layers are selected for monitoring:
+## Dashboard
+
+The pre-configured Grafana dashboard is available as an export: [`dashboard.json`](dashboard.json).
+
+![Grafana Dashboard](dashboard.jpg)
+
+## Metrics
+
+Metrics from several layers are selected for monitoring:
 
 ### Infrastructure Layer
 
@@ -13,7 +23,7 @@ Monitoring is built on metrics automatically collected by Prometheus, as well as
 
 This metric reflects the actual RAM consumption by the application process. An increase in value may indicate memory leaks, increased load, or inefficient model operation.
 
-**Gauge** visualization is used, as in this case it is important to see the current state of the resource relative to permissible threshold values.
+**Gauge** visualization is used, as it is important to see the current state of the resource relative to permissible threshold values.
 
 ---
 
