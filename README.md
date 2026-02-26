@@ -1,4 +1,4 @@
-# MLE Project — Real Estate Price Prediction (Sprint 3)
+# MLE Project — Real Estate Price Prediction
 
 This project is a production-ready Machine Learning service for predicting real estate prices. It is designed to be deployed on **AWS EC2** using **Docker Compose** for a unified, scalable environment.
 
